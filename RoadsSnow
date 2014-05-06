@@ -1,0 +1,39 @@
+#include <stdio.h>
+int c[500005];
+int t[500005];
+int main()
+{
+    int n,a,b,i,j,top,p=0;
+    while(scanf("%d",&n)!=EOF)
+    {
+        top=1;
+        p++;
+        for(i=0;i<n;i++)
+        {
+            scanf("%d %d",&a,&b);
+            c[a]=b;
+        }
+        t[1]=c[1];
+        for(i=2;i<=n;i++)
+        {
+            if(c[i]>t[top])
+            {
+                t[++top]=c[i];
+            }
+            else
+            {
+                for(j=1;j<=top;j++)
+                {
+                    if(c[i]<t[j])
+                    {
+                        t[j]=c[i];
+                        break;
+                    }
+                }
+            }
+        }
+        printf("Case %d:\nMy king, at most %d %s can be built.\n\n",p,top,(top==1)?"road":"roads");
+    }
+    return 0;
+}
+//这个是AC代码~同样转换为最长上升子序列问题，没用dp~

@@ -1,0 +1,48 @@
+//输入n,一组长度为n(n<100)的序列,输入t,t组l,r(l<r),输出区间范围内最大值下标
+#include <stdio.h>
+int e[55];
+int c[110];
+int f[110][110];
+int maxx(int a,int b)
+{
+    return (a>b)?a:b;
+}
+int main()
+{
+    int n,i,j,t,l,r,ans;
+    e[0]=1;
+    for(i=1;i<50;i++)
+    {
+        e[i]=e[i-1]*2;
+    }
+    while(scanf("%d",&n)!=EOF)
+    {
+        for(i=1;i<=n;i++)
+        {
+            scanf("%d",&c[i]);
+            f[i][0]=c[i];
+        }
+        for(j=1;;j++)
+        {
+            if(e[j]>n)break;
+            for(i=1;i<n;i++)
+            {
+                if(i+e[j]-1>n)break;
+                f[i][j]=maxx(f[i][j-1],f[i+e[j-1]][j-1]);
+            }
+        }
+        scanf("%d",&t);
+        while(t--)
+        {
+            scanf("%d %d",&l,&r);
+            r++;
+            for(i=6;i>=0;i--)
+            {
+                if(e[i]<=r-l)break;
+            }
+            ans=maxx(f[l][i],f[r-e[i]][i]);
+            printf("%d\n",ans);
+        }
+    }
+    return 0;
+}
