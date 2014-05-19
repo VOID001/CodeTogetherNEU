@@ -3,7 +3,7 @@
 class CCar;
 class CDriver{
 public:
-	void ModifyCar(CCar *pCar)
+	void ModifyCar(CCar *pCar);
 };
 
 class CCar{
