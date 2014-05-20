@@ -1,0 +1,54 @@
+#include<iostream>
+#include<cstring>
+#include<cstdio>
+using namespace std;
+
+char comma = ',';
+class CStudent{
+private:
+	char id[300];
+	int age;
+	int avgscore[4];
+	char name[300];
+public:
+	void GetStuInfo(char n[300], int age, char i[300], int avgs[4]);
+	int GetAvgScore();
+	void PrintInfo();
+};
+
+int CStudent::GetAvgScore()
+{
+	int sum = 0;
+	for (int i = 0; i < 4; i++)
+	{
+		sum += avgscore[i];
+	}
+	return sum / 4;
+}
+void CStudent::GetStuInfo(char n[300], int ag, char i[300], int avgs[4])
+{
+	strcpy(name, n);
+	strcpy(id, i);
+	memcpy(avgscore,avgs,4*sizeof(int));
+	age = ag;
+	return;
+}
+
+
+void CStudent::PrintInfo()
+{
+	cout << name << comma << age << comma << id << comma << GetAvgScore() << endl;
+	return;
+}
+
+int main(void)
+{
+	CStudent stu;
+	char stuname[300], stuid[300];
+	int stuage, stuscore[4];
+	//cin >> stuname >> comma >> stuage >> comma >> stuid >> comma >> stuscore[0] >> comma >> stuscore[1] >> comma>>stuscore[2] >> comma>> stuscore[3] ;
+	scanf("%[^,],%d,%[^,],%d,%d,%d,%d", stuname, &stuage, stuid,&stuscore[0], &stuscore[1], &stuscore[2], &stuscore[3]);				// 用正则表达式来简化对字符串处理的工作 %[^,] 表示匹配所有的除了逗号外的字符 
+	stu.GetStuInfo(stuname, stuage, stuid, stuscore);
+	stu.PrintInfo();
+	return 0;
+}
