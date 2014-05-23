@@ -45,8 +45,9 @@ class CBase{
 private:
 	int num_iceman, num_ninja, num_wolf, num_lion, num_dragon;
 	int id;
-	static int hp_iceman, hp_ninja, hp_wolf, hp_lion, hp_dragon;					//vim 操作 replace x with y in the whole line 语法： ":s/x/y/g"(不带引号)
+	char name[10];
 public:
+	static int hp_iceman, hp_ninja, hp_wolf, hp_lion, hp_dragon;					//vim 操作 replace x with y in the whole line 语法： ":s/x/y/g"(不带引号)
 	void SetHP(int type, int i);
 	int GetHP(int type);
 	int CreateWarrior(int hp, int a[]);
@@ -54,7 +55,24 @@ public:
 	{
 		return id;
 	}
+	void Init()
+	{
+		num_iceman = num_ninja = num_wolf = num_lion = num_dragon = 0;
+		id = 0;
+	}
+	CBase(char Name[10])
+	{
+		strcpy(name, Name);
+		num_iceman = num_ninja = num_wolf = num_lion = num_dragon = 0;
+		id = 0;
+	}
 };
+
+int CBase::hp_dragon = 0;
+int CBase::hp_ninja = 0;
+int CBase::hp_iceman = 0;
+int CBase::hp_wolf = 0;
+int CBase::hp_lion = 0;
 
 void CBase::SetHP(int type, int i)
 {
@@ -101,12 +119,14 @@ int CBase::CreateWarrior(int hp, int a[])
 {
 	int ok = 0;
 	int curid = GetID();
-	for (int i = 0; i < 5; i++)
+	int i = 0;
+	while (1)
 	{
-		if (hp >= GetHP(a[i]))
+		if (hp >= GetHP(a[i%5]))
 		{
-			int curHP = GetHP(a[i]);
-			switch (a[i])
+			int curHP = GetHP(a[i%5]);
+			cout << name;
+			switch (a[i%5])
 			{
 			case 1:
 				num_dragon++;
@@ -129,8 +149,10 @@ int CBase::CreateWarrior(int hp, int a[])
 				cout << "wolf" << curid << "born with strength" << curHP << "," << num_wolf << "wolf in";
 				break;
 			}
+			cout <<" "<< name << " headquarter" << endl;
 			ok = 1;
-			break;
+			id++;
+			i++;
 		}
 	}
 	return ok;
@@ -138,6 +160,54 @@ int CBase::CreateWarrior(int hp, int a[])
 
 int main(void)
 {
-
+	int N;
+	int iniHP, hp[5];
+	cin >> N;
+	for (int i = 0; i < N; i++)
+	{
+		cin >> iniHP;
+		int redHP =iniHP, blueHP = iniHP;
+		for (int k = 0; k < 5; k++)	cin >> hp[k];
+		CBase red("red"), blue("blue");
+		int sred[5] = {3,4,5,2,1};
+		int sblue[5] = {4,1,2,3,5};
+		for (int i = 0; i < 5; i++)
+		{
+			red.SetHP(i, hp[i]);
+		}
+		int redok = 1;
+		int blueok = 1;
+		int time = 0;
+		while (redok || blueok)
+		{
+			if (redok)
+			{
+				cout.fill('0');
+				cout.setf(ios::right);
+				cout.width(3);
+				cout << time << " ";
+				cout.unsetf(ios::right);
+				redok=red.CreateWarrior(redHP, sred);
+				if (!redok)
+				{
+					cout << "red headquarter stops making warriors" << endl;
+				}
+			}
+			if (blueok)
+			{
+				cout.fill('0');
+				cout.setf(ios::right);
+				cout.width(3);
+				cout << time << " ";
+				cout.unsetf(ios::right);
+				blueok=blue.CreateWarrior(blueHP, sblue);
+				if (!blueok)
+				{
+					cout << "blue headquarter stops making warriors" << endl;
+				}
+			}
+			time++;
+		}
+	}
 	return 0;
 }
