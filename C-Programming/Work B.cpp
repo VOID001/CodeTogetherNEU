@@ -1,78 +1,45 @@
 #include<iostream>
+#include<cstring>
 
 using namespace std;
 
-//class CWarrior{
-//private:
-//	int id;
-//	int hp;
-//	int atk;
-//	char name[10];
-//	int type;
-//public:
-//	CWarrior(int h, int t,int i);
-//	void SetHP(int i, int k);
-//};
-
-
-//CWarrior::CWarrior(int h, int t,int i)
-//{
-//    switch (t)
-//    {
-//    case 1:
-//    	strcpy(name, "dragon");					//vim 替换一个单词 在Normal下 按cw
-//    	break;
-//    case 2:
-//    	strcpy(name, "ninja");
-//    	break;
-//    case 3:
-//    	strcpy(name, "iceman");
-//    	break;
-//    case 4:
-//    	strcpy(name, "lion");
-//    	break;
-//    case 5:
-//    	strcpy(name, "wolf");					//vim 复制多行 首先 选到要复制的首行 在Normal下 按ma 然后 选到复制的最后一行 按 y'a 然后 在要复制的地方 按P or p
-//    	break;
-//    }
-//    hp = h;
-//    type = t;
-//    atk = 9;
-//    id = i;
-//}												// vim的批量注释：  Ctrl+V 进入块选模式 然后 选中你要注释的块 然后点 I 然后加入你要加的符号 比如 // 然后 点 Esc回到正常模式 就OK了
-
 class CBase{
 private:
-	int num_iceman, num_ninja, num_wolf, num_lion, num_dragon;
 	int id;
+	int num_dragon, num_iceman, num_wolf, num_ninja, num_lion;
 	char name[10];
+	int hp;
 public:
-	static int hp_iceman, hp_ninja, hp_wolf, hp_lion, hp_dragon;					//vim 操作 replace x with y in the whole line 语法： ":s/x/y/g"(不带引号)
-	void SetHP(int type, int i);
+	static int hp_dragon, hp_iceman, hp_wolf, hp_ninja, hp_lion;
+	CBase(char Name[],int h);
 	int GetHP(int type);
-	int CreateWarrior(int hp, int a[]);
-	int GetID()
-	{
-		return id;
-	}
-	void Init()
-	{
-		num_iceman = num_ninja = num_wolf = num_lion = num_dragon = 0;
-		id = 0;
-	}
-	CBase(char Name[10])
-	{
-		strcpy(name, Name);
-		num_iceman = num_ninja = num_wolf = num_lion = num_dragon = 0;
-		id = 0;
-	}
+	void Ini();
+	static void SetHP(int type, int i);
+	int CreateWarrior(int a);
 };
 
 int CBase::hp_dragon = 0;
-int CBase::hp_ninja = 0;
 int CBase::hp_iceman = 0;
 int CBase::hp_wolf = 0;
+int CBase::hp_ninja = 0;
 int CBase::hp_lion = 0;
+
+CBase::CBase(char Name[],int h)
+{
+	strcpy(name, Name);
+	id = 0;
+	hp = h;
+	hp_dragon = 0;
+	hp_iceman = 0;
+	hp_wolf = 0;
+	hp_ninja = 0;
+	hp_lion = 0;
+	num_dragon = 0;
+	num_iceman = 0;
+	num_wolf = 0;
+	num_ninja = 0;
+	num_lion = 0;
+}
 
 void CBase::SetHP(int type, int i)
 {
@@ -96,7 +63,6 @@ void CBase::SetHP(int type, int i)
 	}
 }
 
-
 int CBase::GetHP(int type)
 {
 	switch (type)
@@ -115,71 +81,79 @@ int CBase::GetHP(int type)
 }
 
 
-int CBase::CreateWarrior(int hp, int a[])
+void CBase::Ini()
 {
-	int ok = 0;
-	int curid = GetID();
-	int i = 0;
-	while (1)
+	hp_dragon = 0;
+	hp_iceman = 0;
+	hp_wolf = 0;
+	hp_ninja = 0;
+	hp_lion = 0;
+}
+
+int CBase::CreateWarrior(int a)
+{
+	if (hp >= GetHP(a))													//竟然忘记加 "=" 好坑 
 	{
-		if (hp >= GetHP(a[i%5]))
-		{
-			int curHP = GetHP(a[i%5]);
-			cout << name;
-			switch (a[i%5])
+		int curHP= GetHP(a);
+		hp -= curHP;
+		id++;
+		cout << name << " ";
+			switch (a)
 			{
 			case 1:
 				num_dragon++;
-				cout << "dragon" << curid << "born with strength" << curHP << "," << num_dragon << "dragon in";
+				cout << "dragon " << id << " born with strength " << curHP << "," << num_dragon << " dragon in";
 				break;
 			case 2:
 				num_ninja++;
-				cout << "ninja" << curid << "born with strength" << curHP << "," << num_ninja << "ninja in";
+				cout << "ninja " << id << " born with strength " << curHP << "," << num_ninja << " ninja in";
 				break;
 			case 3:
 				num_iceman++;
-				cout << "iceman" << curid << "born with strength" << curHP << "," << num_iceman << "iceman in";
+				cout << "iceman " << id << " born with strength " << curHP << "," << num_iceman << " iceman in";
 				break;
 			case 4:
 				num_lion++;
-				cout << "lion" << curid << "born with strength" << curHP << "," << num_lion << "lion in";
+				cout << "lion " << id << " born with strength " << curHP << "," << num_lion << " lion in";
 				break;
 			case 5:
 				num_wolf++;
-				cout << "wolf" << curid << "born with strength" << curHP << "," << num_wolf << "wolf in";
+				cout << "wolf " << id << " born with strength " << curHP << "," << num_wolf << " wolf in";
 				break;
 			}
 			cout <<" "<< name << " headquarter" << endl;
-			ok = 1;
-			id++;
-			i++;
-		}
+			return 1;
 	}
-	return ok;
+	return 0;
 }
 
 int main(void)
 {
 	int N;
-	int iniHP, hp[5];
 	cin >> N;
-	for (int i = 0; i < N; i++)
+	for (int i = 1; i <= N; i++)
 	{
-		cin >> iniHP;
-		int redHP =iniHP, blueHP = iniHP;
-		for (int k = 0; k < 5; k++)	cin >> hp[k];
-		CBase red("red"), blue("blue");
+		int HP;
+		cin >> HP;
 		int sred[5] = {3,4,5,2,1};
-		int sblue[5] = {4,1,2,3,5};
-		for (int i = 0; i < 5; i++)
+		int sblue[5]={4, 1, 2, 3, 5};
+		CBase red("red",HP);
+		CBase blue("blue",HP);
+		int tmphp;
+		for (int j = 1; j <= 5; j++)
 		{
-			red.SetHP(i, hp[i]);
+			cin >> tmphp;
+			CBase::SetHP(j, tmphp);
 		}
-		int redok = 1;
-		int blueok = 1;
+		bool redok=1, blueok = 1;
+		int redi, bluei = 0;
+		redi = bluei = 0;
 		int time = 0;
+		cout << "Case:" << i << endl;
 		while (redok || blueok)
 		{
+			int cnt = 0;
+			int tmpok = 1;
 			if (redok)
 			{
 				cout.fill('0');
@@ -187,12 +161,22 @@ int main(void)
 				cout.width(3);
 				cout << time << " ";
 				cout.unsetf(ios::right);
-				redok=red.CreateWarrior(redHP, sred);
-				if (!redok)
-				{
-					cout << "red headquarter stops making warriors" << endl;
-				}
 			}
+			while (cnt < 5 && redok)
+			{
+				tmpok = red.CreateWarrior(sred[redi % 5]);
+				redi++;
+				if (tmpok) break;
+				else 
+					cnt++;
+			}
+			if (!tmpok && cnt == 5)
+			{
+				cout << "red headquarter stops making warriors" << endl;
+				redok = 0;
+			}
+			cnt = 0;
+			tmpok = 1;
 			if (blueok)
 			{
 				cout.fill('0');
@@ -200,11 +184,19 @@ int main(void)
 				cout.width(3);
 				cout << time << " ";
 				cout.unsetf(ios::right);
-				blueok=blue.CreateWarrior(blueHP, sblue);
-				if (!blueok)
-				{
-					cout << "blue headquarter stops making warriors" << endl;
-				}
+			}
+			while (cnt < 5 && blueok)
+			{
+				tmpok = blue.CreateWarrior(sblue[bluei % 5]);
+				bluei++;
+				if (tmpok) break;
+				else 
+					cnt++;
+			}
+			if (!tmpok && cnt == 5)
+			{
+				cout << "blue headquarter stops making warriors" << endl;
+				blueok = 0;
 			}
 			time++;
 		}
