@@ -1,0 +1,31 @@
+#include<iostream>
+
+using namespace std;
+
+class CComplex{
+public:
+	CComplex(double a=0.0,double b=0.0):
+		real(a), imagine(b){}
+	CComplex operator +(const CComplex & op)
+	{
+		return	CComplex(real += op.real, imagine += op.imagine);
+	}
+	CComplex operator -(const CComplex & op)
+	{
+		return	CComplex(real -= op.real, imagine -= op.imagine);
+	}
+	void cout()
+	{
+		std::cout << real << "+(" << imagine << "i)" << endl;
+	}
+private:
+	double real, imagine;
+};
+
+int main(void)
+{
+	CComplex a(3, 4), b(5, -5);
+	CComplex c = a + b;
+	c.cout();
+	return 0;
+}
