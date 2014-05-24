@@ -51,7 +51,7 @@ int main(void)
 	s = "Hello C++";
 	String s1;
 	s1 = "PPPP";
-	s = s1;					//这个代码在没有 String & operator = 的时候会出错
+	s = s1;					//这个代码在没有 String & operator = 的时候会出错  原因是： 由于用户未自定义String类的 = 运算符 系统会用自己生成的 进行浅拷贝 然后 s 和 s1同时指向了一块内存 于是 ，在return 时就会由于释放两次同一块内存出问题 所以 会报RE 而不是 CE 因为系统有默认的 对String =  的声明 解决这个问题的方式就是自己写一个	String = 号的重载 
 	s = s;					//如果不在  String & operator =  里加入 语句A 第一个cout 会出异常值
 	cout << s.c_str() << endl;
 	s = "Good Luck";
