@@ -12,7 +12,7 @@ public:
 	char *operator =(const char *s);
 	String & operator = (const String & s)
 	{
-		if (str == s.str) return *this;
+		if (str == s.str) return *this;			//语句A
 		if (str) delete[] str;
 		str = new char[strlen(str) + 1];
 		strcpy(str, s.str);
