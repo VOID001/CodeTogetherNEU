@@ -29,10 +29,12 @@ int main(void)
 			}
 		}
 		printf("%d\n", len);
-		for (int j = len - 1; j >= 0; j--)
-		{
-			printf("%d ", arr[MAX - j]);
-		}
-		printf("\n");
+		//for (int j = len - 1; j >= 0; j--)
+		//{
+		//	printf("%d ", arr[MAX - j]);
+		//}
+		//printf("\n");
+		//上面那个区域的注释 是输出每一位用的
 	}
+	return 0;
 }
