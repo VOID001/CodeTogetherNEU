@@ -1,0 +1,92 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<string>
+#include<stack>
+#include<ctype.h>
+#include<stdlib.h>
+using namespace std;
+
+
+bool isnum(char *p);
+int convStrToNum(char *p);
+
+const int maxn = 40000;
+int main(void)
+{
+	stack<int> calstack;
+	char s[maxn];
+	char *p = s;
+	char in[20];
+	int num = 0;
+	while (gets(s)!=NULL && strcmp(s,""))
+	{
+		memset(in, 0, sizeof(in));
+		while (!calstack.empty()) calstack.pop();				//Initialize
+		p = s;
+		while (1)
+		{
+			sscanf(p, "%s", in);
+			if (isnum(in))
+			{
+				num = convStrToNum(in);
+				calstack.push(num);
+				printf("Push number %d in to the stack\n", num) ;
+			}
+			else if (strcmp(in, ""))
+			{
+				int op0 = calstack.top();
+				calstack.pop();
+				int op1 = calstack.top();
+				calstack.pop();
+				switch (p[0])
+				{
+				case '+':
+					num = op0 + op1;
+					break;
+				case '-':
+					num = op0 - op1;
+					break;
+				case '*':
+					num = op0 * op1;
+					break;
+				case '/':
+					num = op0 / op1;
+					break;
+
+				}
+				calstack.push(num);
+				printf("calc %d %c %d result is %d push in the stack\n", op0, p[0], op1, num);
+			}
+						p += strlen(in);
+			if (*p != '\0') p++;
+			else
+			{
+				num = calstack.top();
+				printf("the result is %d\n", num);
+				break;
+			}
+		}
+	}
+}
+
+bool isnum(char *p)
+{
+	while (*p != '\0')
+	{
+		if (!(*p >= '0'&& *p <= '9')) return false;
+		p++;
+	}
+	return true;
+}
+
+int convStrToNum(char *p)
+{
+	int res = 0;
+	while (*p!= '\0')
+	{
+		res = res * 10 + (*p - '0');
+		p++;
+	}
+	return res;
+}
