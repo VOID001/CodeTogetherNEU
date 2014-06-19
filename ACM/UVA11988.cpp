@@ -39,7 +39,7 @@ int main(void)
 							break;
 						}
 					}
-					i = j;
+					i = j-1;
 				}
 			}
 		}
