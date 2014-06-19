@@ -27,9 +27,9 @@ int main(void)
 				if (sin[i] == '[')
 				{
 					int j = 0;
-					for (j = i; j <= len; j++)
+					for (j = i+1; j <= len; j++)
 					{
-						if (sin[j] == '\0' || sin[j] == ']')
+						if (sin[j] == '\0' || sin[j] == ']' || sin[j]=='[' )
 						{
 							for (int k = j-1; sin[k] != '['; k--)
 							{
