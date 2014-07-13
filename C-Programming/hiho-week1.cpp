@@ -1,10 +1,3 @@
-/*************************************************************************
-    > File Name: hiho-week1.cpp
-    > Author: VOID_133
-    > QQ: 393952764
-    > Mail: zhangjianqiu13@gmail.com 
-    > Created Time: 2014年07月10日 星期四 22时42分40秒
- ************************************************************************/
 #include<iostream>
 #include<stdio.h>
 #include<string.h>
@@ -92,12 +85,4 @@ int getMxLenPalindrome(char* str)
 	return maxn;
 }
 
-void debug_print(char* a,char* b)
-{
-	char* pt=a;
-	while(pt<=b) 
-	{
-		cout<<*pt++;
-	}
-	cout<<endl;
-}
+
