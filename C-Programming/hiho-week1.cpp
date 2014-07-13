@@ -49,7 +49,7 @@ bool isPalindrome(char* head,char* end)
 
 int getMxLenPalindrome(char* str)
 {
-	int maxn=0;
+	int maxn=1;
 	int tmp=0;
 	char* pta=str;
 	char* ptb=str;
@@ -61,25 +61,28 @@ int getMxLenPalindrome(char* str)
 		char* tmppta=pta;
 		if(*tmppta==*tmpptb)		// There is another condition exist
 		{
-			while(isPalindrome(tmppta,tmpptb)&& tmppta>=str && *tmpptb!='\0')
+			tmppta=tmppta-maxn/2;
+			tmpptb=tmpptb+maxn/2;
+			while( tmppta>=str && *tmpptb!='\0' && isPalindrome(tmppta,tmpptb))
 			{
 				tmp=tmpptb-tmppta+1;
 				maxn=maxn>tmp?maxn:tmp;
-				cout<<"DEBUG PALINDROME#1 FOUND LEN "<<tmp<<endl;
-				debug_print(tmppta,tmpptb);
+			//	cout<<"DEBUG PALINDROME#1 FOUND LEN "<<tmp<<endl;
+			//	debug_print(tmppta,tmpptb);
 				tmppta--;
 				tmpptb++;
 			}
 		}
 		else				//pta!=ptb indicates the Palindrome stirnglen must be an odd number
 		{
-			tmppta=pta-1;
+			tmppta=pta-maxn/2;
+			tmpptb=pta+maxn/2;
 			while(isPalindrome(tmppta,tmpptb)&& tmppta>=str && *tmpptb!='\0')
 			{
 				int tmp=tmpptb-tmppta+1;
 				maxn=maxn>tmp?maxn:tmp;
-				cout<<"DEBUG PALINDROME#2 FOUND LEN "<<tmp<<endl;
-				debug_print(tmppta,tmpptb);
+			//	cout<<"DEBUG PALINDROME#2 FOUND LEN "<<tmp<<endl;
+			//	debug_print(tmppta,tmpptb);
 				tmppta--;
 				tmpptb++;
 			}
