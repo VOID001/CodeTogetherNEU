@@ -1,10 +1,4 @@
-/*************************************************************************
-  > File Name: list-1.cpp
-  > Author: VOID_133
-  > QQ: 393952764
-  > Mail: zhangjianqiu13@gmail.com
-  > Created Time: 2014年07月20日 星期日 08时47分35秒
-  > Content:
+/*********
   线性表的链式存储结构
  ************************************************************************/
 #include<iostream>
@@ -12,6 +6,9 @@
 #include<cstdio>
 #include<ctime>
 using namespace std;
+#define OK 0
+#define ERR 1
+#define EOL -1
 /** 线性表的单链表存储结构 **/
 typedef struct Node{
 	int data;
@@ -27,9 +24,12 @@ int createListHead(LinkList* L,int n);			//用头插法创建链表 长度为 n 
 int createListTail(LinkList* L,int n);			//尾插法创建链表 长度 n随机生成元素
 void printList(LinkList L);						//打印链表
 //int listFind
+int listClear(LinkList *L);						//清空链表
+int listSearch(LinkList L,int i,int* e);			//查找 元素 i出现的第一个位置 并把下标值返回给 e
 
 int getElement(LinkList L,int i,int* e)
 {
+	if(L==NULL) return -1;
 	int j=1;
 	LinkList p=L->next;
 	while(p && j<i)							//保证不要越界
@@ -40,9 +40,9 @@ int getElement(LinkList L,int i,int* e)
 	if(p)
 	{
 		*e=p->data;
-		return 1;									//1 代表正常返回
+		return OK;									//1 代表正常返回
 	}
-	else return 0;
+	else return ERR;
 }
 
 int listInsert(LinkList L,int i,int e)
@@ -57,14 +57,14 @@ int listInsert(LinkList L,int i,int e)
 	}
 	if(j>i-1 || !(p->next))
 	{
-		return 0;
+		return ERR;
 	}
 	{
 		s=new Node;							//C++ 语法 new 新建LinkList
 		s->data=e;
 		s->next=p->next;
 		p->next=s;
-		return 1;
+		return OK;
 	}
 }
 
@@ -80,7 +80,7 @@ int listDel(LinkList L,int i,int* e)			//删除  L 中第 i个元素 并将值�
 	}
 	if(j>i-1 || !(p->next))
 	{
-		return 0;
+		return ERR;
 	}
 	else
 	{
@@ -90,7 +90,7 @@ int listDel(LinkList L,int i,int* e)			//删除  L 中第 i个元素 并将值�
 		*e=t->data;
 		delete t;
 		t=NULL;
-		return 1;
+		return OK;
 	}
 }
 
@@ -107,7 +107,7 @@ int createListHead(LinkList* L,int n)
 		p->data=rand()%100+1;
 		(*L)->next=p;						//将新的节点插入在头指针的后面 即链表的最前端
 	}
-	return 1;
+	return OK;
 }
 
 int createListTail(LinkList* L,int n)
@@ -126,7 +126,7 @@ int createListTail(LinkList* L,int n)
 		r=p;
 	}
 	r->next=NULL;
-	return 1;
+	return OK;
 }
 
 
@@ -134,12 +134,46 @@ void printList(LinkList L)
 {
 	int *e=new int;					//=new int
 	int i=1;
-	while(getElement(L,i++,e))
+	while(!getElement(L,i++,e))
 	{
 		cout<<*e<<"->";
 	}
 	cout<<"NULL"<<endl;
-	return ;
+}
+int listClear(LinkList* L)
+{
+	LinkList p=(*L)->next;
+	LinkList curdel=*L;
+	*L=NULL;
+	while(p)
+	{
+		delete curdel;
+		curdel=NULL;
+		curdel=p;
+		p=p->next;
+	}
+	p=NULL;
+	return OK;
+}
+
+int listSearch(LinkList L,int i,int*e)
+{
+	int j=1;
+	LinkList p=L->next;
+	while(p)
+	{
+		if(p->data==i) 
+		{
+			*e=j;
+			return OK;
+		}
+		else 
+		{
+			p=p->next;
+			j++;
+		}
+	}
+	return ERR;
 }
 
 int main(void)
@@ -149,7 +183,7 @@ int main(void)
 	cout<<"输入你要建立的链表的大小"<<endl;
 	cin>> n;
 	createListTail(list1,n);
-	int *e;
+	int *e=new int;
 	cout<<"下面打印链表"<<endl;
 	printList(*list1);
 	while(n)
@@ -162,6 +196,19 @@ int main(void)
 	listInsert(*list1,4,23333);
 	printList(*list1);
 	listDel(*list1,9,e);
+	printList(*list1);
+	cout<<"Input an Element you want to find"<<endl;
+	cin>>n;
+	int status=listSearch(*list1,n,e);
+	if(status) 
+	{
+		cout<<"ERROR!"<<endl;
+	}
+	else 
+	{
+		cout<<*e<<endl;
+	}
+	listClear(list1);
 	printList(*list1);
 	return 0;
 }
