@@ -25,7 +25,7 @@ int createListTail(LinkList* L,int n);			//尾插法创建链表 长度 n随机�
 void printList(LinkList L);						//打印链表
 //int listFind
 int listClear(LinkList *L);						//清空链表
-int listSearch(LinkList L,int i,int* e);			//查找 元素 i出现的第一个位置 并把下标值返回给 e
+int listSearch(LinkList L,int i,int* e);		//查找 元素 i出现的第一个位置 并把下标值返回给 e
 
 int getElement(LinkList L,int i,int* e)
 {
@@ -140,6 +140,7 @@ void printList(LinkList L)
 	}
 	cout<<"NULL"<<endl;
 }
+
 int listClear(LinkList* L)
 {
 	LinkList p=(*L)->next;
@@ -175,6 +176,8 @@ int listSearch(LinkList L,int i,int*e)
 	}
 	return ERR;
 }
+
+
 
 int main(void)
 {
