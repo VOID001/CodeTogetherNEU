@@ -24,7 +24,9 @@ int createListHead(CycleLinkList* Lrear,int n)
 	CycleLinkList p;
 	(*Lrear)=new Node;
 	srand(clock());
-	(*Lrear)->next=*Lrear; n++; while(n--)
+	(*Lrear)->next=*Lrear; 
+	(*Lrear)->data=rand()%100+1;
+	while(n--)
 	{
 		p=new Node;
 		p->next=(*Lrear)->next;
@@ -54,8 +56,8 @@ void printList(CycleLinkList L)
 		cout<<p->data<<"->";
 		p=p->next;
 	}
+	cout<<p->data<<"->";
 	cout<<"NULL"<<endl;
-	cout<<"DEBUG"<<L->data<<endl;
 }
 
 int main(void)
@@ -74,4 +76,7 @@ int main(void)
 }
 
 
-//这个代码会在合并之后的链表多输出一个 0 原因就是 这个循环链表建立的时候 ，尾指针没存data  默认为 0 了
+//前一个代码会在合并之后的链表多输出一个 0 原因就是 这个循环链表建立的时候 ，尾指针没存data  默认为 0 了
+//
+//
+//这个版本是改正版
