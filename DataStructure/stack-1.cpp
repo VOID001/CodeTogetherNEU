@@ -64,9 +64,9 @@ void printInfo()
 int main(void)
 {
 	SqStack* p=new SqStack;
-	SElemType* e;
+	SElemType* e=new int;
 	printInfo();
-	//initStack(p);
+	initStack(p);
 	int in=1;
 	int st;
 	while(in)
