@@ -2,13 +2,14 @@
     > File Name: stack-app2.cpp
     > Author: VOID_133
     > QQ: 393952764
-    > Mail: zhangjianqiu13@gmail.com 
+    > Mail: zhangjianqiu13@gmail.com
     > Created Time: 2014年07月29日 星期二 21时46分46秒
     > Content 递归不写了，直接写四则表达式运算:
  ************************************************************************/
 #include<iostream>
 #include<cstring>
 #include<cstdio>
+#include<stack>
 #define OK 0
 #define ERR -1
 
@@ -16,7 +17,7 @@ using namespace std;
 typedef char ElemType;
 typedef struct Node{
 	struct Node* next;
-	ElemType data;	
+	ElemType data;
 }Node,*LinkStackPtr;
 
 typedef struct LinkStack{
@@ -26,7 +27,7 @@ typedef struct LinkStack{
 
 int initStack(LinkStack* S)
 {
-	while(S->top!=NULL)					//零 代表空栈 
+	while(S->top!=NULL)					//零 代表空栈
 	{
 		LinkStackPtr p=S->top;
 		S->top=S->top->next;
@@ -45,7 +46,7 @@ int push(LinkStack* S,ElemType e)
 	p->next=S->top;
 	S->top=p;
 	S->count++;
-	return OK;				
+	return OK;
 }
 
 int pop(LinkStack* S,ElemType* e)
@@ -70,7 +71,7 @@ int getTop(LinkStack* S,ElemType* e)
 	return OK;
 }
 
-bool priorjudge(char op,char top)					//True 出栈 False NO POP 
+bool priorjudge(char op,char top)					//True 出栈 False NO POP
 {
 	if(top=='(') return false;
 	if(op=='+' || op=='-')
@@ -92,8 +93,7 @@ char* normToRPN(char* str)
 	initStack(opstack);
 	int len=strlen(str);
 	int cnt=0;
-	char* tmpc=new char;
-	char* tope=new char;
+	char* tmpc=new char; char* tope=new char;
 
 	for(int i=0;i<len;i++)
 	{
@@ -159,16 +159,73 @@ char* normToRPN(char* str)
 		expRPN[cnt]=*tmpc;
 		cnt++;
 	}
+	initStack(opstack);
+	delete opstack;
 	return expRPN;
+}
+
+int calcuEXP(char* exp)						//用栈对表达式进行处理
+{
+	stack<int> numstack;
+	int len=strlen(exp);
+	int tmpnum=0;
+	int opa,opb=0;
+	int res=0;
+	for(int i=0;i<len;i++)
+	{
+        if(exp[i]>='0' && exp[i]<='9')
+        {
+            tmpnum=tmpnum*10+exp[i]-'0';
+        }
+		else if(exp[i]==' ')
+        {
+            numstack.push(tmpnum);
+            tmpnum=0;
+        }
+		else if(exp[i]=='+' || exp[i]== '-' || exp[i]== '*'|| exp[i]=='/')
+        {
+			if(exp[i-1]>='0' && exp[i-1]<='9') 
+			{
+				numstack.push(tmpnum);
+				tmpnum=0;
+			}
+            opb=numstack.top();
+            numstack.pop();
+            opa=numstack.top();
+            numstack.pop();
+            switch(exp[i])
+            {
+                case '+':
+                    res=opa+opb;
+                    break;
+                case '-':
+                    res=opa-opb;
+					break;
+				case '*':
+					res=opa*opb;
+					break;
+				case '/':
+					res=opa/opb;
+					break;
+
+            }
+			numstack.push(res);
+        }
+	}
+	res=numstack.top();
+	return res;
 }
 
 int main(void)
 {
 	char *expmain=new char[1000];
 	char s[1000];
-	scanf("%s",s);
-	expmain=normToRPN(s);
-	printf("%s\n",expmain);
-
+	while(1)
+	{
+		scanf("%s",s);
+		expmain=normToRPN(s);
+		printf("%s\n",expmain);
+		cout<<calcuEXP(expmain)<<endl;
+	}
 	return 0;
 }
