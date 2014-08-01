@@ -25,7 +25,7 @@ typedef struct LinkStack{
 	int count;
 }LinkStack;
 
-int initStack(LinkStack* S)
+int clearStack(LinkStack* S)
 {
 	while(S->top!=NULL)					//零 代表空栈
 	{
@@ -36,6 +36,12 @@ int initStack(LinkStack* S)
 	}
 	S->top=NULL;
 	return OK;
+}
+
+int initStack(LinkStack* S)
+{
+	S->top=NULL;
+	S->count=0;
 }
 
 
@@ -159,7 +165,7 @@ char* normToRPN(char* str)
 		expRPN[cnt]=*tmpc;
 		cnt++;
 	}
-	initStack(opstack);
+	clearStack(opstack);
 	delete opstack;
 	return expRPN;
 }
@@ -175,31 +181,39 @@ int calcuEXP(char* exp)						//用栈对表达式进行处理
 	{
         if(exp[i]>='0' && exp[i]<='9')
         {
+			if(exp[i-1]== '+' ||exp[i-1]== '/' ||exp[i-1]== '*' ||exp[i-1]== '-' )
+			{
+				tmpnum=0;
+			}
             tmpnum=tmpnum*10+exp[i]-'0';
         }
 		else if(exp[i]==' ')
         {
-            numstack.push(tmpnum);
-            tmpnum=0;
-        }
+			if(exp[i-1]== '+' ||exp[i-1]== '/' ||exp[i-1]== '*' ||exp[i-1]== '-' );
+			else
+			{
+				numstack.push(tmpnum);
+				tmpnum=0;
+			}
+		}
 		else if(exp[i]=='+' || exp[i]== '-' || exp[i]== '*'|| exp[i]=='/')
-        {
+		{
 			if(exp[i-1]>='0' && exp[i-1]<='9') 
 			{
 				numstack.push(tmpnum);
 				tmpnum=0;
 			}
-            opb=numstack.top();
-            numstack.pop();
-            opa=numstack.top();
-            numstack.pop();
-            switch(exp[i])
-            {
-                case '+':
-                    res=opa+opb;
-                    break;
-                case '-':
-                    res=opa-opb;
+			opb=numstack.top();
+			numstack.pop();
+			opa=numstack.top();
+			numstack.pop();
+			switch(exp[i])
+			{
+				case '+':
+					res=opa+opb;
+					break;
+				case '-':
+					res=opa-opb;
 					break;
 				case '*':
 					res=opa*opb;
@@ -208,9 +222,9 @@ int calcuEXP(char* exp)						//用栈对表达式进行处理
 					res=opa/opb;
 					break;
 
-            }
+			}
 			numstack.push(res);
-        }
+		}
 	}
 	res=numstack.top();
 	return res;
