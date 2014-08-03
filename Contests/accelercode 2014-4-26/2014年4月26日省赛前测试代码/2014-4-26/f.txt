@@ -1,0 +1,112 @@
+
+Welcome To HUSTOJ Online Judge
+Home
+Web Board
+ProblemSet
+Status
+Ranklist
+Contest
+Recent
+F.A.Qs
+ModifyUser gmz (1) Recent Logout 
+抱歉！网络赛B,F题数据有误，现已改正，同学们可以重新提交！
+?
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+	
+#include<stdio.h>
+ 
+int main(void)
+{
+    int a,b;
+    while(scanf("%d%d",&a,&b)!=EOF)
+    {
+        int t;
+        int num=0;
+        int flaga=1;
+        while(b)
+        {
+            t=a/b;
+            if(flaga==1 && t== 1 ) num++;
+            else
+            {
+                flaga=0;
+                break;
+            }
+            int tt;
+            tt=a;
+            a=b;
+            b=tt%b;
+        }
+        if(flaga==1)
+        {
+            if(num%2) printf("YES\n");
+            else printf("NO\n");
+        }
+        else
+        {
+            if(num%2) printf("NO\n");
+            else printf("YES\n");
+        }
+    }
+    return 0;
+}
+ 
+/**************************************************************
+    Problem: 1015
+    User: gmz
+    Language: C++
+    Result: Accepted
+    Time:0 ms
+    Memory:800 kb
+****************************************************************/
+
+한국어  中文  فارسی  English  ไทย	
+Anything about the Problems, Please Contact Admin:admin
+All Copyright Reserved 2010-2011 HUSTOJ TEAM
+GPL2.0 2003-2012 HUSTOJ Project TEAM
+

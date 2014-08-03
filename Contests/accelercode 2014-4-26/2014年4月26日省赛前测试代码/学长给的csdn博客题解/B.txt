@@ -1,0 +1,101 @@
+继续深搜  equal (2010-08-13 16:21:11)转载▼
+标签： 杂谈	
+equal
+TimeLimit: 1 Second   MemoryLimit: 32 Megabyte
+Totalsubmit: 232   Accepted: 125  
+Description
+Given a set of numbers, can you find that if these numbers can be separated into 6 subsets, so that the sum of each subsets is equal.
+For example, a set of {1, 1, 1, 1, 1, 1} can fullfill the require, but {1, 2, 3, 4, 5, 6} can not.
+Input
+The input contains multiple test cases. The first line contains a integer T, the number of cases. Each test case begins with a integer N(N<=30) the number of numbers in the set, followed by N integers.
+Output
+For each test case print "yes" if the set fullfill the problem, and "no" if not.
+Sample Input
+
+2
+20 1 2 3 4 5 5 4 3 2 1 1 2 3 4 5 5 4 3 2 1
+20 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+Sample Output
+
+yes
+no
+和拼正方形的题很类似，这一题也是用深搜。只不过边数变成了6而已。。。。只消把程序稍微修改一下，就ok了。很简单，不赘述，看代码。。。
+ 
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+int a[50];
+int status[50];
+int N,M,sum,ave,flag;
+int cmp(const void* a,const void* b)
+{
+        return (*(int*)a-*(int*)b);
+}
+void DFS(int st,int now,int edge)//深搜
+{
+  if(edge==5)
+        {
+                flag=1;
+                return;
+        }
+        else
+  if(!flag)
+        {
+                int i;
+                for(i=st;i>=0&&!flag;i--)
+                {
+                        if(!status[i]) 
+                        {
+                                if(now+a[i]==ave)
+                                {
+                                        status[i]=1;
+                                        DFS(M-1,0,edge+1);
+                                        status[i]=0;
+                                }
+                                else if(now+a[i]<ave)
+                                {
+                                        status[i]=1;
+                                        DFS(i,now+a[i],edge);
+                                        status[i]=0;
+                                }
+                        }
+                }
+        }
+}
+int main()
+{
+        int i,j;
+        while(scanf("%d",&N)!=EOF)
+        {
+        while(N--)
+        {
+                flag=0;
+                sum=0;
+                memset(status,0,sizeof(status));
+                scanf("%d",&M);
+                for(i=0;i<M;i++)
+                {
+                        scanf("%d",&a[i]);     
+                        sum=sum+a[i];
+                }
+                if(sum%6!=0)
+                {
+                        printf("no\n");
+                        continue;      
+                }      
+                qsort(a,M,sizeof(a[0]),cmp);
+                ave=sum/6;
+                if(a[M-1]>ave)
+                {
+                        printf("no\n");
+                        continue;      
+                }
+                DFS(M-1,0,0);
+                if(flag==1)
+                        printf("yes\n");
+                else printf("no\n");   
+        }
+ }
+    return 0;           
+}
+ 

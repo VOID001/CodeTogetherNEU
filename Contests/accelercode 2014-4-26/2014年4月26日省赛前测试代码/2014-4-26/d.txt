@@ -1,0 +1,79 @@
+Problem D: Independent Sets
+Description
+
+One day, a man named Wang Wang programmer born from a stone.
+
+Another day, he learned the bubble sort and independent sets.
+
+In a graph, an independent set is a set of points, meet no edge between any two points . So he wanted to combine these two things.
+
+As we all know, independent set needs a graph. Wang Wang invented an algorithm that produces an undirected graph from a bubble sort.
+
+This algorithm pseudo-code ( non-standard ) as follows :
+
+procedure bubblesortgraph (n, a []):
+
+       / * Input: n and a. n is number of points, a is a permutation of 1 to n.
+
+              Output: a point of n undirected graph G. * /
+
+             
+
+              Create a n point and zero edges undirected graph G .
+
+              do:
+
+                     swapped = false
+
+                     for i from 1 to n-1:
+
+                            if a[i] > a[i+1]:
+
+                                   Add an edge between a[i] and a[i+1] into graph G .
+
+                                   swap a[i] and a[i+1]
+
+                                   swapped = true
+
+              while swapped
+
+              Output graph G.
+
+       // End
+
+ 
+
+ 
+
+So we need to calculate the size of the undirected graph G largest independent set.
+
+But something more than that.
+Wang Wang would sometimes feel unhappy, and this time he will ask you one more question : maximum independent set may not be unique , but some points must be choose, which point must be choose in a maximum independent set .
+
+Input
+
+There are multiple test cases , process to the end of the file .
+
+For each test case, output two lines. The first line is an integer n, the second line is a permutation of 1 to n.
+
+1 <= n <= 100,000
+The sum of all n is no more than 1,000,000.
+
+Output
+
+For each test case, output two lines.
+
+The first line of output is the size of maximum independent set .
+
+The second line of output is all the point's index (separated by a space) which points must be choose in a maximum independent set , output ordered by input. Point's index is numbered by the input order.
+
+Sample Input
+3 
+3 1 2 
+3 
+1 2 3
+Sample Output
+2 
+2 3 
+3 
+1 2 3 
