@@ -1,0 +1,196 @@
+NOTAPALINDROME -- is not a palindrome.
+
+ISAPALINILAPASI -- is a regular palindrome.
+
+2A3MEAS -- is a mirrored string.
+
+ATOYOTA -- is a mirrored palindrome.
+
+MAIAM -- is a mirrored palindrome.
+
+123ESI -- is not a palindrome.
+
+123ES1 -- is a mirrored string.
+
+DEO3D -- is not a palindrome.
+
+9339 -- is a regular palindrome.
+
+A -- is a mirrored palindrome.
+
+B -- is a regular palindrome.
+
+E -- is a regular palindrome.
+
+M -- is a mirrored palindrome.
+
+1 -- is a mirrored palindrome.
+
+3 -- is a regular palindrome.
+
+2 -- is a regular palindrome.
+
+4 -- is a regular palindrome.
+
+2AH3ES -- is not a palindrome.
+
+AAAHAAAA -- is not a palindrome.
+
+AAHAAHAA -- is a mirrored palindrome.
+
+BHBBBBBBHB -- is a regular palindrome.
+
+OOOOOOOOOOOOIOOOOOOOOOOOOOOOO -- is not a palindrome.
+
+OOIOO -- is a mirrored palindrome.
+
+OOZOO -- is a regular palindrome.
+
+A3HILJMO2TUVWXY51SEZ8 -- is not a palindrome.
+
+HJKJH -- is a regular palindrome.
+
+JLJLJLJL -- is a mirrored string.
+
+G -- is a regular palindrome.
+
+H -- is a mirrored palindrome.
+
+I -- is a mirrored palindrome.
+
+A -- is a mirrored palindrome.
+
+JJJKLSA -- is not a palindrome.
+
+AA -- is a mirrored palindrome.
+
+JO -- is not a palindrome.
+
+LJ -- is a mirrored string.
+
+JL -- is a mirrored string.
+
+UIUIU -- is a mirrored palindrome.
+
+HHNNHH -- is a regular palindrome.
+
+OJOJO -- is a regular palindrome.
+
+OIOIO -- is a mirrored palindrome.
+
+AAIOOIOOIAA -- is a mirrored palindrome.
+
+A -- is a mirrored palindrome.
+
+B -- is a regular palindrome.
+
+C -- is a regular palindrome.
+
+D -- is a regular palindrome.
+
+E -- is a regular palindrome.
+
+F -- is a regular palindrome.
+
+G -- is a regular palindrome.
+
+H -- is a mirrored palindrome.
+
+I -- is a mirrored palindrome.
+
+J -- is a regular palindrome.
+
+K -- is a regular palindrome.
+
+L -- is a regular palindrome.
+
+M -- is a mirrored palindrome.
+
+N -- is a regular palindrome.
+
+O -- is a mirrored palindrome.
+
+P -- is a regular palindrome.
+
+Q -- is a regular palindrome.
+
+R -- is a regular palindrome.
+
+S -- is a regular palindrome.
+
+T -- is a mirrored palindrome.
+
+U -- is a mirrored palindrome.
+
+V -- is a mirrored palindrome.
+
+W -- is a mirrored palindrome.
+
+X -- is a mirrored palindrome.
+
+Y -- is a mirrored palindrome.
+
+Z -- is a regular palindrome.
+
+AA -- is a mirrored palindrome.
+
+BB -- is a regular palindrome.
+
+CC -- is a regular palindrome.
+
+DD -- is a regular palindrome.
+
+EE -- is a regular palindrome.
+
+FF -- is a regular palindrome.
+
+GG -- is a regular palindrome.
+
+HH -- is a mirrored palindrome.
+
+II -- is a mirrored palindrome.
+
+JJ -- is a regular palindrome.
+
+KK -- is a regular palindrome.
+
+LL -- is a regular palindrome.
+
+MM -- is a mirrored palindrome.
+
+NN -- is a regular palindrome.
+
+OO -- is a mirrored palindrome.
+
+PP -- is a regular palindrome.
+
+QQ -- is a regular palindrome.
+
+RR -- is a regular palindrome.
+
+SS -- is a regular palindrome.
+
+TT -- is a mirrored palindrome.
+
+UU -- is a mirrored palindrome.
+
+VV -- is a mirrored palindrome.
+
+WW -- is a mirrored palindrome.
+
+XX -- is a mirrored palindrome.
+
+YY -- is a mirrored palindrome.
+
+ZZ -- is a regular palindrome.
+
+QWERTYUIOP -- is not a palindrome.
+
+POIUYTREWQWERTYUIOP -- is a regular palindrome.
+
+ASDFFDSA -- is a regular palindrome.
+
+ASDDSA -- is a regular palindrome.
+
+DNSNSD -- is not a palindrome.
+

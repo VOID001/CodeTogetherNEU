@@ -1,0 +1,76 @@
+#include<stdio.h>
+
+#define MAX 10000
+
+int counter=0;
+
+int collatz(int n,int limit);
+
+int main(void)
+{
+    //freopen("input.txt","r",stdin);
+    int times[MAX],cases;
+    cases=1;
+    int a[MAX],b[MAX];
+    while(scanf("%d %d",&a[cases],&b[cases]))
+    {
+        counter=1;
+        if(a[cases]<0) break;
+        times[cases]=collatz(a[cases],b[cases]);
+        cases++;
+    }
+    for(int i=1;i<cases;i++)
+    {
+        printf("Case %d: A = %d, limit = %d, number of terms = %d",cases,a[i],b[i],times[i]);
+        if(i<cases-1) printf("\n");
+    }
+    return 0;
+}
+
+int collatz(int n,int limit)
+{
+    if(n==1 || n>limit)
+    {
+        return counter;
+    }
+    else if(n%2==0)
+    {
+        counter++;
+        collatz(n/2,limit);
+    }
+    else if(n%2==1)
+    {
+        if(n*3+1<=limit) {counter++; collatz(n*3+1,limit);}
+        else return counter;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

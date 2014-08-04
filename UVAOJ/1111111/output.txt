@@ -1,0 +1,81 @@
+Probem #7
+P=0.00W
+
+Problem #8
+P=1.00W
+
+Problem #9
+P=1000.00W
+
+Problem #10
+P=1.00W
+
+Problem #11
+P=1000000.00W
+
+Problem #12
+P=1000000000.00W
+
+Problem #13
+P=1000.00W
+
+Problem #14
+P=1000000000.00W
+
+Problem #15
+P=1000000000000.00W
+
+Problem #16
+U=1.00V
+
+Problem #17
+U=0.00V
+
+Problem #18
+U=0.00V
+
+Problem #19
+U=1000000.00V
+
+Problem #20
+U=1.00V
+
+Problem #21
+U=0.00V
+
+Problem #22
+U=1000000000.00V
+
+Problem #23
+U=1000.00V
+
+Problem #24
+U=1.00V
+
+Problem #25
+I=1.00A
+
+Problem #26
+I=0.00A
+
+Problem #27
+I=0.00A
+
+Problem #28
+I=1000000.00A
+
+Problem #29
+I=1.00A
+
+Problem #30
+I=0.00A
+
+Problem #31
+I=1000000000.00A
+
+Problem #32
+I=1000.00A
+
+Problem #33
+I=1.00A
+

@@ -28,4 +28,19 @@ obj/
 *.depend
 *.layout
 
+#Visual Studio Projectfiles
+*.sdf
+*.sln
+*.v12
+*.suo
+*.vcxproj
+*.filters
+Debug/
+ReadMe.txt
+stdafx.cpp
+targertver.h
+stdafx.h
 
+#LogFile
+*.xlsx
+*.docx

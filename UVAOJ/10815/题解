@@ -1,0 +1,82 @@
+UVA 10815 - Andy's First Dictionary
+
+UVA 10815 - Andy's First Dictionary
+
+这题一开始时，总是Runtime Error，怎么也不知错在哪里？后来，我向高人请教。一开始时他也Runtime Error，但他后来AC了。他告诉我，是数组开小了，开辟到100000就行了。为什么呢，因为题目中有隐藏的细节，就是：有重复的单词可能使单词个数远超过5000，5000只是最后去重的结果。
+
+这个细节我怎么也没注意到，我问他怎么看到的；他回答说是从题目中看到的。最后，他教导我说：学这么长时间了，还是训练不到位，继续努力！
+
+   我想问他，怎么个努力，可我没说。我想至于努力那是你自己事情，自己的事情自己解决！
+
+从这题中我们受到的启发，就是认真读题，对于数据问题，要分析清楚，往往这正是出题人的意图。
+
+AC Code
+
+/*
+
+C Source Code
+
+By Ahshua
+
+Time: 22:03:59 29.06.2010
+
+*/
+
+#include <stdio.h>
+
+#include <ctype.h>
+
+#include <stdlib.h>
+
+#include <string.h>
+
+char d[100010][210]={'\0'};
+
+int n=0,len=0;
+
+int cmp_string(const void* _a,const void* _b)
+
+{
+
+    char* a= (char*)_a;
+
+    char* b= (char*)_b;
+
+    return strcmp(a,b);
+
+}
+
+int main()
+
+{
+
+    char ch;
+
+    while(1)
+
+    {
+
+       if((ch=getchar())==EOF) break;
+
+       if(isalpha(ch))
+
+          d[n][len++]=tolower(ch);
+
+       else
+
+          if(isalpha(d[n][0])){ d[n++][len]='\0';len=0; }
+
+    }
+
+    qsort(d,n,sizeof(d[0]),cmp_string);
+
+    for(int i=0;i<n;i++)
+
+       if(strcmp(d[i],d[i+1]))
+
+          printf("%s\n",d[i]);
+
+    return 0;
+
+}
+

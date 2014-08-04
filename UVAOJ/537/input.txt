@@ -1,0 +1,34 @@
+33
+aslkdjsadjaslkj  sdakjahdssand U=25V P=100MWlsajdlsak?
+If the voltage is U=200V and the current is I=4.5A, which power is generated?
+A light-bulb yields P=100W and the voltage is U=220V. Compute the current, please.
+bla bla bla lightning strike I=2A bla bla bla P=2500000000MW bla bla voltage?
+U=5V,I=3A blablablablabla (No input is)
+U=1V,I=1A
+U=1mV,I=1mA
+U=1mV,I=1kA
+U=1mV,I=1MA
+U=1kV,I=1mA
+U=1kV,I=1kA
+U=1kV,I=1MA
+U=1MV,I=1mA
+U=1MV,I=1kA
+U=1MV,I=1MA
+P=1mV,I=1mA
+P=1mV,I=1kA
+P=1mV,I=1MA
+P=1kV,I=1mA
+P=1kV,I=1kA
+P=1kV,I=1MA
+P=1MV,I=1mA
+P=1MV,I=1kA
+P=1MV,I=1MA
+P=1mV,U=1mA
+P=1mV,U=1kA
+P=1mV,U=1MA
+P=1kV,U=1mA
+P=1kV,U=1kA
+P=1kV,U=1MA
+P=1MV,U=1mA
+P=1MV,U=1kA
+P=1MV,U=1MA
