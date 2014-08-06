@@ -11,7 +11,7 @@
 #include<iostream>
 #include<cstdio>
 using namespace std;
-const int MAX=1000000;
+const int MAX=100000;
 int L[MAX];
 int R[MAX];
 void mergesort(int* A,int first,int end);
@@ -36,8 +36,8 @@ void merge(int *A,int first,int mid,int end)
 	for(int i=1;i<=lenR;i++) R[i]=A[mid+i];
 	int li=1;
 	int ri=1;
-	int cnt=1;
-	//the code below has fatal error
+	int cnt=first;						//the array we should merge is from A[first] to A[end] so we can only modify these value ,we shouldn'tmodify other A values
+	//The Problem has fixed
 	while(li<=lenL && ri <=lenR)
 	{
 		int tmp;
@@ -67,13 +67,14 @@ void merge(int *A,int first,int mid,int end)
 
 int main(void)
 {
-	int arr[1000];
+	int arr[MAX];
 	int n;
 	while(scanf("%d",&n)!=EOF && n)
 	{
 		for(int i=1;i<=n;i++) cin>>arr[i];
 		mergesort(arr,1,n);
 		for(int i=1;i<=n;i++) cout<<arr[i]<<" ";
+		cout<<endl;
 	}
 	return 0;
 }
