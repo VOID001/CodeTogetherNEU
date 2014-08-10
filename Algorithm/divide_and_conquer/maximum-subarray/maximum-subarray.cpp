@@ -6,7 +6,7 @@
     > Created Time: 2014年08月07日 星期四 14时29分38秒
 	> Content: Find the maximum sub array(Continious) in the array
 				Using Divide and Conquer
- ************************************************************************/
+ ************************************************************************/ 
 #include<iostream>
 #include<cstdio>
 #include<cstdlib>
