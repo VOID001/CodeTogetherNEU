@@ -39,7 +39,13 @@ bool fill(double a)
 		//if(dis[i]<a && dis[i+1]<a) return false;
 		//if(cov[i]==0 && dis[i]<2*a && dis[i]!=a && dis[i+1]<a) return false;
 		//if(dis[i]==a || dis[i]>=2*a){cov[i]=1;cov[i+1]=1;}
-		if(dis[i]>a) {cov[i]=1;}
+		if(dis[i]>a)
+		{
+			if(cov[i]==0)
+				cov[i]=1;
+			else if(cov[i]==1)
+				cov[i+1]=1;
+		}
 		//if(dis[i]==a) {cov[i]=1;cov[i+1]=1;}
 		if((dis[i]-a)>-eps && (dis[i]-a)<eps) {cov[i]=1;cov[i+1]=1;}
 		if(dis[i]>=2*a) {cov[i]=1;cov[i+1]=1;}
