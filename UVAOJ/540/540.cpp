@@ -33,7 +33,7 @@ int main(void)
 	while(scanf("%d",&n) && n)
 	{
 		//while(!teamque.empty()) teamque.pop();
-		//for(int i=0;i<maxn;i++) {while(!que[i].empty()) {teamque.pop();}}
+		//for(int i=0;i<maxn;i++) {while(!que[i].empty()) {que.pop();}}
 		//teamMap.clear();
 		//memset(teamInQueue,0,sizeof(teamInQueue));
 		map<int,int> teamMap;
