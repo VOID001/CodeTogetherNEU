@@ -20,7 +20,7 @@ int main(void)
 	int casen =rand()%1000+1;
 	for(int i=1;i<=casen;i++)
 	{
-		int datasize=rand()%100000+1;
+		int datasize=rand()%10000+1;
 		printf("%d\n",datasize);
 		for(int j=1;j<=datasize;j++)
 		{

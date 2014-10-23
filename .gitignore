@@ -44,3 +44,6 @@ stdafx.h
 #LogFile
 *.xlsx
 *.docx
+
+#Error Report
+errrep

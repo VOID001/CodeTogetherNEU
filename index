@@ -1,0 +1,57 @@
+Creating filelist for ACM
+Creating filelist for Algorithm
+Creating filelist for Contests
+Creating filelist for C-Programming
+Creating filelist for DataStructure
+Have a non-directory at the top, so creating directory top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//index to top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//index.html to top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//MaxSumSnow_algorithm.cpp to top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//MaxSumSnow.cpp to top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//MaxSumSnow_dp to top_dir
+Creating filelist for ProblemSet
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//README.md to top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//RMQsnow to top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//Roads_dpSnow to top_dir
+Adding /home/void-admin/Documents/CodeTogetherNEU/.//RoadsSnow to top_dir
+Creating filelist for UVAOJ
+Categorizing files.
+Finding a working MD5 command....
+Found a working MD5 command.
+Computing results.
+
+
+SLOC	Directory	SLOC-by-Language (Sorted)
+5492    Contests        cpp=5492
+3146    UVAOJ           cpp=3107,xml=39
+993     C-Programming   cpp=993
+856     DataStructure   cpp=856
+351     Algorithm       cpp=351
+314     ACM             cpp=261,ansic=52,sh=1
+74      top_dir         cpp=74
+0       ProblemSet      (none)
+
+
+Totals grouped by language (dominant language first):
+cpp:          11134 (99.18%)
+ansic:           52 (0.46%)
+xml:             39 (0.35%)
+sh:               1 (0.01%)
+
+
+
+
+Total Physical Source Lines of Code (SLOC)                = 11,226
+Development Effort Estimate, Person-Years (Person-Months) = 2.53 (30.41)
+ (Basic COCOMO model, Person-Months = 2.4 * (KSLOC**1.05))
+Schedule Estimate, Years (Months)                         = 0.76 (9.15)
+ (Basic COCOMO model, Months = 2.5 * (person-months**0.38))
+Estimated Average Number of Developers (Effort/Schedule)  = 3.32
+Total Estimated Cost to Develop                           = $ 342,277
+ (average salary = $56,286/year, overhead = 2.40).
+SLOCCount, Copyright (C) 2001-2004 David A. Wheeler
+SLOCCount is Open Source Software/Free Software, licensed under the GNU GPL.
+SLOCCount comes with ABSOLUTELY NO WARRANTY, and you are welcome to
+redistribute it under certain conditions as specified by the GNU GPL license;
+see the documentation for details.
+Please credit this data as "generated using David A. Wheeler's 'SLOCCount'."
