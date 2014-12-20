@@ -27,7 +27,7 @@ void isprime()
             }
         }
     }
-    p[1]=3;p[2]=4;
+    p[1]=3;p[2]=4;						
 }
 
 typedef struct
