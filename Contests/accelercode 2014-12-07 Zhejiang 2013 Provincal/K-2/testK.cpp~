@@ -1,0 +1,84 @@
+#include <stdio.h>
+#include <string.h>
+#include <algorithm>
+using namespace std;
+const int INF=1<<28;
+int m[102][102];
+int vis[102],sum[102];
+
+struct node
+{
+    int kid;
+    int candy;
+    friend bool operator <(node a,node b)
+    {
+        return a.candy < b.candy; //按糖果数排序
+    }
+} c[102];
+int main()
+{
+    int t,n,x;
+    scanf("%d",&t);
+    while(t--)
+    {
+        scanf("%d",&n);
+        memset(sum,0,sizeof(sum));
+        memset(m,0,sizeof(m));
+        for (int i = 2; i <= n; i++)
+        {
+            scanf("%d",&x);
+            m[i][x] = 1;//表示第i个孩子将票投给了x
+            sum[x]++;//记录每个人的得票数
+        }
+        for (int i = 2; i <= n; i++)
+        {
+            scanf("%d",&x);
+            c[i-2].kid = i; //将贿赂第i个孩子所需的糖果数保存在数组c中 
+            c[i-2].candy = x;
+        }
+        sort(c,c+n-1);//按糖果数排序
+        int Min = INF;
+        for (int i = sum[1]; i < n; i++)//枚举胜出的票数
+        {
+            if(i==0) continue;
+            int get = sum[1];//Sheldon的原始票数
+            int num = 0; //记录所需的糖果数
+            memset(vis,0,sizeof(vis));
+            for (int j = 2; j <= n; j++)
+            {
+                int temp = sum[j];
+                if (temp >= i)//处理所有票数比他高的
+                {
+                    for (int k = 0; k < n-1; k++)
+                    {
+                        if (m[c[k].kid][j])
+                        {
+                            vis[c[k].kid] = 1;
+                            num+=c[k].candy;
+                            get++;
+                            temp--;
+                            if (temp < i)
+                                break;
+                        }
+                    }
+                }
+            }
+            if (get <= i)
+            {
+                for (int k = 0; k < n-1; k++)
+                {
+                    if (get==i)
+                        break;
+                    if (!vis[c[k].kid])
+                    {
+                        get++;
+                        num+=c[k].candy;
+                    }
+                }
+                if(num < Min) Min = num;
+            }
+        }
+        printf("%d\n",Min);
+    }
+    return 0;
+}
