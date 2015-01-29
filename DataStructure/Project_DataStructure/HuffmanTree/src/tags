@@ -1,0 +1,25 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+CodingTable	structs.h	/^}CodingTable;$/;"	t	typeref:struct:nodea
+HuffmanT	classHuffmanTree.cpp	/^		vector<StaticHuffmanNode> HuffmanT;$/;"	m	class:HuffmanTree	file:
+HuffmanTree	classHuffmanTree.cpp	/^class HuffmanTree{$/;"	c	file:
+SAFE_HANDLER_COMM_H	comm.h	10;"	d
+StaticHuffmanNode	structs.h	/^}StaticHuffmanNode;$/;"	t	typeref:struct:node
+_CLASSHUFFMANTREE_CPP	classHuffmanTree.cpp	10;"	d	file:
+_STRUCTS_H	structs.h	11;"	d
+addr	structs.h	/^	int addr;$/;"	m	struct:nodea
+codingTable	classHuffmanTree.cpp	/^		string codingTable[300];$/;"	m	class:HuffmanTree	file:
+data	structs.h	/^	char data;$/;"	m	struct:node
+decoding	classHuffmanTree.cpp	/^void HuffmanTree::decoding()$/;"	f	class:HuffmanTree
+encoding	classHuffmanTree.cpp	/^void HuffmanTree::encoding()$/;"	f	class:HuffmanTree
+fileStr	classHuffmanTree.cpp	/^		string fileStr;$/;"	m	class:HuffmanTree	file:
+freq	structs.h	/^	long long freq;$/;"	m	struct:nodea
+left	structs.h	/^	int left;$/;"	m	struct:node
+node	structs.h	/^typedef struct node{$/;"	s
+nodea	structs.h	/^typedef struct nodea{$/;"	s
+right	structs.h	/^	int right;$/;"	m	struct:node
+root	classHuffmanTree.cpp	/^		int root;$/;"	m	class:HuffmanTree	file:

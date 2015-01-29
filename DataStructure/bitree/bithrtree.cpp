@@ -46,7 +46,7 @@ void visit(BithrTree* T);
 Status createBithrtree(BithrTree* T,char* inOrderStr,char* preOrderStr);
 void preOrderTransverse(BithrTree* T);
 
-Status createBithrtree(BithrTree* T,char* inOrderStr,char* preOrderStr)
+BithrTree* createBithrtree(BithrTree* T,char* inOrderStr,char* preOrderStr)
 {
 	if(!strcmp(inOrderStr,"")||!strcmp(preOrderStr,"")) return OK;
 	T=(BithrTree*)malloc(sizeof(BithrTree));
