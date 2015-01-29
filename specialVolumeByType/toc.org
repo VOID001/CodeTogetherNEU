@@ -1,0 +1,17 @@
+#+STARTUP: content
+#+TITLE: Table Of Content
+#+AUTHOR: VOID001
+
+* Overview
+| Name Of Directory | Content              |
+|-------+----------------------|
+| <5>   | <20>                 |
+| Vol_1 | basis of search      |
+|       |                      |
+
+
+* Data
+** Vol_1
+*** [[http://poj.org/problem?id%3D1321][Problem A]]
+From : POJ 1321
+Type : DFS Search
