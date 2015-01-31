@@ -15,3 +15,6 @@
 *** [[http://poj.org/problem?id%3D1321][Problem A]]
 From : POJ 1321
 Type : DFS Search
+*** [[http://poj.org/problem?id=2251][Problem B]]
+From : POJ 2251
+Type : BFS Search
