@@ -72,7 +72,7 @@ int bfs(int start,int end)
 		if(tmp.val==end) return tmp.cost;
 		for(int i=0;i<4;i++)
 		{
-			for(int j=(i==0?1:0);j<=9;j++)
+			for(int j=(i==0?1:0);j<=9;j++)		//题目虽然没说，不过好像最高位就算在中途也不能为0 原因嘛，如果允许最高位为0的话，就会发现输出结果不对
 			{
 				Node T=tmp;
 				T.digi[i]=j;
