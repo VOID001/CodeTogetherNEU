@@ -25,3 +25,21 @@ Comment: 这里有两个奇怪的问题 这两个问题不改过来的话代码�
 From : POJ 3278
 Type : BFS Search
 Comment: 这个题目不难，要求找最短的路径，用BFS即可，不过代码写的很难看Orz
+*** [[http://poj.org/problem?id=3279][Problem D]]
+From : POJ 3279
+Type : BFS + Some math tricks
+Comment : You should know the theory of this "turn on the light" game
+妈蛋 = = 电脑升级之后，输入法竟然出了问题 = = 导致半天没法输入中文，然后果断抛弃了
+ibus使用了 fctix，然后安装了搜狗输入法，实际效果真的很棒。好了不说废话 继续说这个题目
+这个题目的两个要点为
+1.明确点灯游戏的原理
+2.考虑到枚举的时候只需要枚举第一行的数据即可推算后面的数据，不用枚举整个棋盘 这个思路参见
+大白书的1.2例题7。
+*** [[http://poj.org/problem?id=1426][Problem E]]
+From : POJ 1426
+Type : BFS + 同余模定理
+Comment : 详见代码吧
+**** Problem F
+From : POJ 3126
+TYpe : BFS
+Comment :
