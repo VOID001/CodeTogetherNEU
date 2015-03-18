@@ -39,7 +39,7 @@ ibus使用了 fctix，然后安装了搜狗输入法，实际效果真的很棒�
 From : POJ 1426
 Type : BFS + 同余模定理
 Comment : 详见代码吧
-**** Problem F
+*** Problem F
 From : POJ 3126
 TYpe : BFS
 Comment :
