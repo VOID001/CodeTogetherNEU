@@ -66,6 +66,7 @@ int bfs(int start,int end)
 	t.cost=0;
 	que.push(t);
 	while(!que.empty())
+		man
 	{
 		Node tmp=que.front();
 		que.pop();
