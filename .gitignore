@@ -47,3 +47,6 @@ stdafx.h
 
 #Error Report
 errrep
+
+#Temp File
+*~
