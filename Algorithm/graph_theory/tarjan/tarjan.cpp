@@ -66,7 +66,7 @@ void tarjan(int u)
 			tarjan(v);
 			low[u] = min(low[v],low[u]);
 		}
-		else if(!sccno[u])					//u is not in any SCC now
+		else if(!sccno[v])					//u is not in any SCC now
 		{
 			low[u] = min(dfn[v],low[u]);
 		}
@@ -103,7 +103,11 @@ int main(void)
 {
 	init();
 	getInput();
-	tarjan(1);
+	FORi(1,noden+1)
+	{
+		if(!dfn[i])
+			tarjan(i);
+	}
 	return 0;
 }
 
