@@ -103,7 +103,7 @@ void init()
 		S.pop();
 	FORi(0,maxn)
 		G[i].clear();
-	dfs_clock = 0;
+	dfs_clock = 1;
 	scc_count = 0;
 }
 
